@@ -74,7 +74,7 @@ body {
     border: 3px solid blue;     
     transition: 0.5s;
     opacity: 0;       
-    pointer-events: none;    
+    visibility: hidden;    
 }    
 
 
@@ -82,7 +82,8 @@ body {
     border-top: 3px solid blue;
     display: block;
     transform: translate(0%, -5%);
-    opacity: 1;       
+    opacity: 1;  
+    visibility: visible;    
 }
 
 /* ~ 형제 선택자 , 나는 빠진다 */
@@ -93,10 +94,12 @@ body {
 main {
     position: relative;
     background: #333;
-    height: 500px;   
+    height: 500px;  
+     
 }
 
 .footer {
     text-align: center;
     padding: 50px 0;
+    
 }
