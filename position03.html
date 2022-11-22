@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position03 : hover,position 실습</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            vertical-align: middle;
+        }
+
+        .hover {
+            padding: 100px 0;
+        }
+
+        .inner {
+            display: flex;
+            gap: 30px;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .inner figure {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .inner figure .box { 
+            position: absolute;
+            top: 100%; /* 1번 사진 검은박스 밑에서 위로올라가게 이벤트 */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.5s;
+
+        }
+
+        .inner figure:hover .box { /* 이미지위에 검은박스 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+
+            display: flex; 
+            justify-content: center; /* zanmang loopy 글자 가운데 놓는 태그 */
+            align-items: center;
+            opacity: 1;
+
+            /* opacity: 0.3; 투명도, 글자까지 투명해짐 그래서 백그라운드에서 투명도를 주자 */
+        }
+
+        .inner figure .box2 { /* 아이콘 */
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            font-size: 20px;
+            padding: 10px 5px;
+            transform: translate(0, 100%); /* 카트, 하트 위치 */
+
+            display: flex;
+            flex-direction: column; /* 아이콘 세로로 */
+            gap: 10px;
+            border: 1px solid #ddd;
+            
+            transition: 0.5s;
+        }
+
+        .inner figure:hover .box2 {
+            transform: translate(0, 0); /* 카트, 하트 위치 */
+        }
+
+        .inner figure .box3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .inner figure .box3 span::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 0;
+            height: 0;
+            border-top: 1px solid #fff;
+            border-left: 1px solid #fff;
+            transition: 0.5s;
+            box-sizing: border-box;
+            opacity: 0;
+        }
+
+        .inner figure .box3:hover span::before {
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            opacity: 1;
+        }
+
+        .inner figure .box3 span::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 0;
+            height: 0;
+            border-bottom: 1px solid #fff;
+            border-right: 1px solid #fff;
+            transition: 0.5s;
+            box-sizing: border-box;      
+            opacity: 0;      
+        }
+
+        .inner figure .box3:hover span::after {
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hover">
+        <div class="inner">
+            <figure>
+                <img src="./img.jpg" alt="">
+                <div class="box">
+                    <span>zanmang loopy</span>
+                </div>
+            </figure>
+            <figure>
+                <img src="./img.jpg" alt="">
+                <div class="box2">
+                    <i class="xi-cart"></i>
+                    <i class="xi-heart"></i>
+                </div>
+            </figure>
+            <figure>
+                <img src="./img.jpg" alt="">
+                <div class="box3">
+                    <span>zanmang loopy</span>
+                </div>
+            </figure>
+        </div>
+
+    </section>
+</body>
+
+</html>

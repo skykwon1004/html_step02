@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position 실습01</title>
+    <style>
+        body{
+            height: 200vh; /* 100vh viewport 사이즈 */
+        }
+        
+        .btn {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            background: #ddd;
+            border: 1px solid #333;
+            border-radius: 5px; /* 모서리 라운드 지게 */
+        }
+
+        .btn span {
+            position: absolute;
+            left: 3px;
+            right: 3px;
+            background: #333;
+            height: 2px;
+            transition: 0.5s; /* none은 애니매이션 안먹는다 */
+        }
+
+        .btn span:nth-child(1) {
+            top: 7px;
+        }
+
+        .btn span:nth-child(2) {
+            top: calc(50% - 1px);
+        }
+
+        .btn span:nth-child(3) {
+            top: calc(50% - 1px);
+        }
+
+        .btn span:nth-child(4) {
+            bottom: 7px;
+        }
+
+        .btn:hover span:nth-child(1) {
+            display: none;
+        }
+
+        .btn:hover span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        .btn:hover span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        .btn:hover span:nth-child(4) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+
+</html>
